@@ -1,0 +1,1010 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ck_Ant0">
+    <meta name="description" content="Sito personale di Ck_Ant0, developer specializzato in web, progetti digitali, community e server.">
+    <meta name="keywords" content="Ck_Ant0, developer, web developer, portfolio, progetti, server, community, coding">
+    <meta name="generator" content="StarlyCode Studio">
+    <title>Ck_Ant0 | Developer Portfolio</title>
+    <style>
+        :root {
+            --bg: #080b10;
+            --panel: #111722;
+            --panel-2: #151d2a;
+            --text: #eef3f8;
+            --muted: #aab7c4;
+            --line: rgba(255, 255, 255, 0.12);
+            --cyan: #39d5ff;
+            --green: #62e49b;
+            --amber: #ffd166;
+            --red: #ff6b6b;
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(180deg, rgba(57, 213, 255, 0.08), transparent 360px),
+                var(--bg);
+            color: var(--text);
+            font-family: Inter, Segoe UI, Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid var(--line);
+            background: rgba(8, 11, 16, 0.82);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav {
+            width: min(1120px, calc(100% - 32px));
+            min-height: 72px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(57, 213, 255, 0.36);
+            border-radius: 8px;
+            background: #0d1420;
+            color: var(--cyan);
+            font-family: Consolas, monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: calc(100vh - 72px);
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+            align-items: center;
+            gap: 56px;
+            padding: 64px 0 80px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: var(--green);
+            font-family: Consolas, monospace;
+            font-size: 0.93rem;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 18px rgba(98, 228, 155, 0.8);
+        }
+
+        h1 {
+            max-width: 760px;
+            font-size: clamp(2.45rem, 7vw, 5.9rem);
+            line-height: 0.94;
+            letter-spacing: 0;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .accent {
+            color: var(--cyan);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .btn {
+            min-height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 18px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-weight: 700;
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(57, 213, 255, 0.56);
+        }
+
+        .btn.primary {
+            background: var(--cyan);
+            color: #061018;
+            border-color: transparent;
+        }
+
+        .btn.secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 42px;
+            max-width: 650px;
+        }
+
+        .stat {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--text);
+            font-size: 1.35rem;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .terminal {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #0d121b;
+            box-shadow: var(--shadow);
+        }
+
+        .terminal-bar {
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            border-bottom: 1px solid var(--line);
+            background: #131b28;
+            color: var(--muted);
+            font-size: 0.86rem;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .window-dots span {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+
+        .window-dots span:nth-child(2) { background: var(--amber); }
+        .window-dots span:nth-child(3) { background: var(--green); }
+
+        .code-screen {
+            min-height: 430px;
+            padding: 24px;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.94rem;
+            color: #d8e7f3;
+        }
+
+        .line {
+            display: block;
+            margin: 9px 0;
+            white-space: pre-wrap;
+        }
+
+        .line .num { color: #556270; margin-right: 14px; }
+        .line .key { color: var(--cyan); }
+        .line .str { color: var(--green); }
+        .line .com { color: #7d8b9a; }
+        .line .fn { color: var(--amber); }
+
+        section {
+            padding: 82px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .section-head p {
+            max-width: 520px;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            min-height: 210px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--panel);
+            padding: 22px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.12rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 10px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.035);
+            font-size: 0.82rem;
+        }
+
+        .projects {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-card {
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--panel-2);
+        }
+
+        .project-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 16px;
+        }
+
+        .project-label {
+            flex: 0 0 auto;
+            border: 1px solid rgba(98, 228, 155, 0.34);
+            border-radius: 999px;
+            padding: 6px 10px;
+            color: var(--green);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .server-band {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .server-panel {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 28px;
+            background: #101720;
+        }
+
+        .server-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .server-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .server-item span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+
+        .server-band-wide {
+            grid-template-columns: 0.9fr 1fr 1fr;
+        }
+
+        .coral-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .coral-logo {
+            width: 100%;
+            max-width: 360px;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #11c8df;
+        }
+
+        .coral-copy {
+            color: var(--muted);
+        }
+        .timeline {
+            display: grid;
+            gap: 14px;
+        }
+
+        .timeline-item {
+            border-left: 3px solid var(--cyan);
+            padding: 4px 0 4px 18px;
+        }
+
+        .timeline-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item span {
+            color: var(--muted);
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 32px;
+            align-items: center;
+            padding: 46px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #101720;
+        }
+
+        .contact h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1;
+            margin-bottom: 14px;
+        }
+
+        .contact p {
+            max-width: 640px;
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 30px 0 46px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 16px 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 4px;
+            }
+
+            .hero,
+            .server-band,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 48px;
+                gap: 36px;
+            }
+
+            .grid,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .section-head p {
+                margin-top: 14px;
+            }
+
+            .contact {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .code-screen {
+                min-height: 340px;
+                padding: 18px;
+                font-size: 0.82rem;
+            }
+
+            .project-top,
+            .server-item {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @keyframes introExit {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+            }
+            72% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-18px);
+                visibility: hidden;
+            }
+        }
+
+        @keyframes introText {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.96);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes scanSweep {
+            from {
+                transform: translateX(-120%) skewX(-12deg);
+            }
+            to {
+                transform: translateX(120%) skewX(-12deg);
+            }
+        }
+
+        @keyframes heroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(34px) scale(0.985);
+                filter: blur(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes headerDrop {
+            from {
+                opacity: 0;
+                transform: translateY(-22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes terminalBoot {
+            from {
+                opacity: 0;
+                transform: perspective(900px) rotateX(8deg) rotateY(-10deg) translateY(38px) scale(0.94);
+                filter: blur(12px);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(900px) rotateX(0) rotateY(0) translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes lineBoot {
+            from {
+                opacity: 0;
+                transform: translateX(-18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes cardReveal {
+            from {
+                opacity: 0;
+                transform: translateY(42px) scale(0.96);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes softPulse {
+            0%, 100% {
+                box-shadow: 0 0 14px rgba(98, 228, 155, 0.55), 0 0 0 rgba(98, 228, 155, 0);
+            }
+            50% {
+                box-shadow: 0 0 26px rgba(98, 228, 155, 0.95), 0 0 24px rgba(57, 213, 255, 0.28);
+            }
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 998;
+            pointer-events: none;
+            background:
+                linear-gradient(90deg, transparent, rgba(57, 213, 255, 0.18), transparent),
+                radial-gradient(circle at 50% 50%, rgba(57, 213, 255, 0.16), transparent 42%),
+                #080b10;
+            animation: introExit 1.35s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+        }
+
+        .intro-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: grid;
+            place-items: center;
+            pointer-events: none;
+            overflow: hidden;
+            animation: introExit 1.35s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+        }
+
+        .intro-loader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 70%;
+            margin: auto;
+            background: linear-gradient(90deg, transparent, rgba(57, 213, 255, 0.32), transparent);
+            animation: scanSweep 1.05s ease-out forwards;
+        }
+
+        .intro-loader span {
+            position: relative;
+            color: var(--cyan);
+            font-family: Consolas, Monaco, monospace;
+            font-size: clamp(1.1rem, 4vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-shadow: 0 0 28px rgba(57, 213, 255, 0.58);
+            animation: introText 650ms ease 90ms both;
+        }
+
+        .site-header {
+            opacity: 0;
+            animation: headerDrop 720ms cubic-bezier(0.2, 0.9, 0.2, 1) 900ms forwards;
+        }
+
+        .eyebrow,
+        .hero h1,
+        .hero p,
+        .hero-actions,
+        .hero-stats {
+            opacity: 0;
+            animation: heroReveal 820ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .eyebrow { animation-delay: 1.05s; }
+        .hero h1 { animation-delay: 1.18s; }
+        .hero p { animation-delay: 1.31s; }
+        .hero-actions { animation-delay: 1.44s; }
+        .hero-stats { animation-delay: 1.57s; }
+
+        .terminal {
+            opacity: 0;
+            transform-origin: center left;
+            animation: terminalBoot 980ms cubic-bezier(0.16, 1, 0.3, 1) 1.26s forwards;
+        }
+
+        .terminal .line {
+            opacity: 0;
+            animation: lineBoot 460ms ease forwards;
+        }
+
+        .terminal .line:nth-child(1) { animation-delay: 1.95s; }
+        .terminal .line:nth-child(2) { animation-delay: 2.03s; }
+        .terminal .line:nth-child(3) { animation-delay: 2.11s; }
+        .terminal .line:nth-child(4) { animation-delay: 2.19s; }
+        .terminal .line:nth-child(5) { animation-delay: 2.27s; }
+        .terminal .line:nth-child(6) { animation-delay: 2.35s; }
+        .terminal .line:nth-child(7) { animation-delay: 2.43s; }
+        .terminal .line:nth-child(8) { animation-delay: 2.51s; }
+        .terminal .line:nth-child(9) { animation-delay: 2.59s; }
+        .terminal .line:nth-child(10) { animation-delay: 2.67s; }
+        .terminal .line:nth-child(11) { animation-delay: 2.75s; }
+        .terminal .line:nth-child(12) { animation-delay: 2.83s; }
+
+        .status-dot {
+            animation: softPulse 2.2s ease-in-out infinite;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(42px) scale(0.96);
+            filter: blur(10px);
+        }
+
+        .reveal.is-visible {
+            animation: cardReveal 780ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--reveal-delay, 0ms);
+        }
+
+        .card,
+        .server-panel,
+        .contact,
+        .section-head {
+            will-change: transform, opacity, filter;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 1ms !important;
+                animation-delay: 0ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 1ms !important;
+            }
+
+            .reveal,
+            .terminal .line,
+            .site-header,
+            .eyebrow,
+            .hero h1,
+            .hero p,
+            .hero-actions,
+            .hero-stats,
+            .terminal {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-loader" aria-hidden="true"><span>CK_ANTO.DEV</span></div>
+    <header class="site-header">
+        <nav class="nav" aria-label="Navigazione principale">
+            <a class="brand" href="#top" aria-label="Ck_Ant0 home">
+                <span class="brand-mark">&lt;/&gt;</span>
+                <span>Ck_Ant0</span>
+            </a>
+            <div class="nav-links">
+                <a href="#competenze">Competenze</a>
+                <a href="#progetti">Progetti</a>
+                <a href="#server">Server</a>
+                <a href="#contatti">Contatti</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="top">
+        <div class="container hero">
+            <div>
+                <div class="eyebrow"><span class="status-dot"></span> Developer in crescita continua</div>
+                <h1>Creo esperienze web, tool e community <span class="accent">con codice pulito.</span></h1>
+                <p>
+                    Sono Ck_Ant0, developer e pluginner su CoralMC: lavoro su siti, bot Discord in Python, plugin Java e progetti digitali.
+                    Mi piace trasformare idee concrete in interfacce veloci, ordinate e semplici da usare.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#progetti">Vedi i progetti</a>
+                    <a class="btn secondary" href="#contatti">Parliamone</a>
+                </div>
+                <div class="hero-stats" aria-label="Statistiche rapide">
+                    <div class="stat">
+                        <strong>Web</strong>
+                        <span>Frontend responsive</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Java</strong>
+                        <span>Plugin e backend</span>
+                    </div>
+                    <div class="stat">
+                        <strong>Code</strong>
+                        <span>Progetti su misura</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="terminal" aria-label="Anteprima stile codice">
+                <div class="terminal-bar">
+                    <div class="window-dots"><span></span><span></span><span></span></div>
+                    <span>portfolio.config</span>
+                </div>
+                <div class="code-screen">
+                    <span class="line"><span class="num">01</span><span class="key">const</span> developer = <span class="str">"Ck_Ant0"</span>;</span>
+                    <span class="line"><span class="num">02</span><span class="key">const</span> focus = [</span>
+                    <span class="line"><span class="num">03</span>  <span class="str">"siti web"</span>,</span>
+                    <span class="line"><span class="num">04</span>  <span class="str">"bot Discord in Python"</span>,</span>
+                    <span class="line"><span class="num">05</span>  <span class="str">"plugin Java"</span></span>
+                    <span class="line"><span class="num">06</span>];</span>
+                    <span class="line"><span class="num">07</span></span>
+                    <span class="line"><span class="num">08</span><span class="key">function</span> <span class="fn">buildProject</span>(idea) {</span>
+                    <span class="line"><span class="num">09</span>  <span class="key">return</span> idea + <span class="str">" -> online"</span>;</span>
+                    <span class="line"><span class="num">10</span>}</span>
+                    <span class="line"><span class="num">11</span></span>
+                    <span class="line"><span class="num">12</span><span class="com">// Sempre pronto a migliorare.</span></span>
+                </div>
+            </aside>
+        </div>
+
+        <section id="competenze">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Competenze</h2>
+                    <p>Una base solida per costruire interfacce, bot, plugin e strumenti utili per progetti personali, community e server Minecraft.</p>
+                </div>
+                <div class="grid">
+                    <article class="card">
+                        <h3>Frontend web</h3>
+                        <p>Layout responsive, pagine personali, landing page, dashboard e interfacce curate per desktop e mobile.</p>
+                        <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                    </article>
+                    <article class="card">
+                        <h3>Bot Discord in Python</h3>
+                        <p>Creo bot Discord in Python per comandi, utility, moderazione, automazioni e gestione della community.</p>
+                        <div class="tag-list"><span class="tag">Python</span><span class="tag">Discord.py</span><span class="tag">API</span></div>
+                    </article>
+                    <article class="card">
+                        <h3>Java</h3>
+                        <p>Sviluppo plugin e sistemi in Java, con attenzione a logica pulita, performance e funzioni utili in gioco.</p>
+                        <div class="tag-list"><span class="tag">Java</span><span class="tag">Plugin</span><span class="tag">Minecraft</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="progetti">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Progetti</h2>
+                    <p>Qui trovi una selezione dei miei lavori. Per vedere tutti i repository e gli aggiornamenti vai sul mio GitHub.</p>
+                </div>
+                <div class="grid projects">
+                    <article class="card project-card">
+                        <div>
+                            <div class="project-top">
+                                <h3>CkAnto Site</h3>
+                                <span class="project-label">Portfolio</span>
+                            </div>
+                            <p>Il mio sito personale: una base professionale per mostrare competenze, progetti, CoralMC e contatti.</p>
+                        </div>
+                        <div class="tag-list"><span class="tag">Design</span><span class="tag">Responsive</span><span class="tag">Personal brand</span></div>
+                    </article>
+                    <article class="card project-card">
+                        <div>
+                            <div class="project-top">
+                                <h3>CoralMC</h3>
+                                <span class="project-label">Pluginner</span>
+                            </div>
+                            <p>Lavoro su CoralMC come pluginner, creando sistemi e funzionalita in Java per migliorare esperienza e gestione del server.</p>
+                        </div>
+                        <div class="tag-list"><span class="tag">Java</span><span class="tag">Minecraft</span><span class="tag">Plugin</span></div>
+                    </article>
+                    <article class="card project-card">
+                        <div>
+                            <div class="project-top">
+                                <h3>GitHub Projects</h3>
+                                <span class="project-label">Repository</span>
+                            </div>
+                            <p>Raccolta dei miei progetti, esperimenti e lavori pubblici disponibili sul mio profilo GitHub.</p>
+                        </div>
+                        <div class="tag-list"><span class="tag">GitHub</span><span class="tag">Code</span><span class="tag">Open source</span></div>
+                        <div class="hero-actions" style="margin-top: 18px;">
+                            <a class="btn secondary" href="https://github.com/ToxitAnto/" target="_blank" rel="noopener">Apri GitHub</a>
+                        </div>
+                    </article>
+                    <article class="card project-card">
+                        <div>
+                            <div class="project-top">
+                                <h3>Bot Discord</h3>
+                                <span class="project-label">Python</span>
+                            </div>
+                            <p>Bot e automazioni per server Discord: comandi, utility, gestione e strumenti su misura.</p>
+                        </div>
+                        <div class="tag-list"><span class="tag">Python</span><span class="tag">Discord</span><span class="tag">Automazioni</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="server">
+            <div class="container">
+                <div class="section-head">
+                    <h2>CoralMC e ruoli</h2>
+                    <p>Una sezione dedicata al server in cui lavoro come pluginner e agli ambiti tecnici che seguo.</p>
+                </div>
+                <div class="server-band server-band-wide">
+                    <div class="server-panel coral-card">
+                        <img class="coral-logo" src="assets/coralmc-logo.png" alt="Logo CoralMC">
+                        <h3>Pluginner su CoralMC</h3>
+                        <p class="coral-copy">Mi occupo alla configurazione di pl, sistemi Java e funzionalita pensate per rendere il server piu stabile, curato e divertente.</p>
+                    </div>
+                    <div class="server-panel">
+                        <h3>Come lavoro</h3>
+                        <div class="timeline" style="margin-top: 20px;">
+                            <div class="timeline-item"><strong>Analisi</strong><span>Capisco obiettivo, utenti e problemi reali.</span></div>
+                            <div class="timeline-item"><strong>Build</strong><span>Creo una prima versione chiara e funzionante.</span></div>
+                            <div class="timeline-item"><strong>Miglioramento</strong><span>Rifinisco codice, performance e stabilita.</span></div>
+                        </div>
+                    </div>
+                    <div class="server-panel">
+                        <h3>Ambiti</h3>
+                        <div class="server-list" style="margin-top: 20px;">
+                            <div class="server-item"><strong>CoralMC</strong><span>pluginner e sistemi Java</span></div>
+                            <div class="server-item"><strong>Bot Discord</strong><span>Python, comandi, utility</span></div>
+                            <div class="server-item"><strong>Siti web</strong><span>portfolio, frontend, pagine progetto</span></div>
+                            <div class="server-item"><strong>Collaborazioni</strong><span>team, idee, supporto tecnico</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contatti">
+            <div class="container">
+                <div class="contact">
+                    <div>
+                        <h2>Hai un progetto o un server da migliorare?</h2>
+                        <p>Scrivimi per collaborazioni, idee, supporto tecnico o per parlare di progetti web, bot Discord, plugin Java e CoralMC.</p>
+                    </div>
+                    <div class="hero-actions" style="margin-top: 0;">
+                        <a class="btn primary" href="https://t.me/ck_anto" target="_blank" rel="noopener">Telegram</a>
+                        <a class="btn secondary" href="https://github.com/ToxitAnto/" target="_blank" rel="noopener">GitHub</a>
+                        <a class="btn secondary" href="#top">Torna su</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">&copy; 2026 Ck_Ant0. Built with focus, code and curiosity.</div>
+    </footer>
+
+    <script>
+        const revealItems = document.querySelectorAll('.section-head, .card, .server-panel, .contact');
+
+        revealItems.forEach((item, index) => {
+            item.classList.add('reveal');
+            item.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 90}ms`);
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.18,
+            rootMargin: '0px 0px -70px 0px'
+        });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+    </script></body>
+</html>
+
+
+
+
+
